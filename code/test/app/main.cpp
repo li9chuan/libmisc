@@ -63,7 +63,7 @@ int main(int argc, const char **argv)
         WindowDisplayer->setTitleBar ("App version 1.0.0");
 
         //   DebugLog->addDisplayer (WindowDisplayer);
-        InfoLog->addDisplayer (WindowDisplayer);
+        //  InfoLog->addDisplayer (WindowDisplayer);
         //   WarningLog->addDisplayer (WindowDisplayer);
         //   ErrorLog->addDisplayer (WindowDisplayer);
         //   AssertLog->addDisplayer (WindowDisplayer);
@@ -104,7 +104,6 @@ int main(int argc, const char **argv)
 
     // remove the stdin monitor thread
     IStdinMonitorSingleton::getInstance()->release(); // does nothing if not initialized
-
     return EXIT_SUCCESS;
 }
 
