@@ -61,12 +61,9 @@ int main(int argc, const char **argv)
     {
         WindowDisplayer->create ( "*INIT* Test App.", false, -1, -1, -1, -1, -1, 0, "", false, &CommandLog);
         WindowDisplayer->setTitleBar ("App version 1.0.0");
+        WindowDisplayer->createLabel ("@Measure|displayMeasures");
+        WindowDisplayer->createLabel ("@Quit|quit");
 
-        //   DebugLog->addDisplayer (WindowDisplayer);
-        //  InfoLog->addDisplayer (WindowDisplayer);
-        //   WarningLog->addDisplayer (WindowDisplayer);
-        //   ErrorLog->addDisplayer (WindowDisplayer);
-        //   AssertLog->addDisplayer (WindowDisplayer);
         CommandLog.addDisplayer(WindowDisplayer, true);
     }
     else
@@ -104,6 +101,7 @@ int main(int argc, const char **argv)
 
     // remove the stdin monitor thread
     IStdinMonitorSingleton::getInstance()->release(); // does nothing if not initialized
+    CHTimer::clear();
     return EXIT_SUCCESS;
 }
 
