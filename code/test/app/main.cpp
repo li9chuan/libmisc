@@ -48,8 +48,6 @@ int main(int argc, const char **argv)
     CHTimer::startBench(false, true);
     CHTimer::endBench();
 
-    CWindowDisplayer*   W111 = NULL;
-
     // create a logger; it's an information logger.
     CLog CommandLog (CLog::LOG_INFO);
 
@@ -70,6 +68,8 @@ int main(int argc, const char **argv)
     {
         IStdinMonitorSingleton::getInstance()->init();
     }
+
+    ICommand::execute("displayMeasures", CommandLog);
 
     while ( !isExit )
     {
