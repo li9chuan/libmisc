@@ -540,7 +540,7 @@ inline void CTimerEvent::processEvent()
 //-------------------------------------------------------------------------------------------------
 
 inline CTimerManager::CTimerManager()
-	: _CurrentTick(0), _LastTick(0), _LocalTime(0), _UpdateTimeout(100)
+	: _UpdateTimeout(100), _CurrentTick(0), _LastTick(0), _LocalTime(0), _BaseTime(0)
 {}
 
 inline CTimerManager* CTimerManager::getInstance()
