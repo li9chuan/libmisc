@@ -284,7 +284,7 @@ public:
 
     enum 
     {
-        TIMER_VECTOR_MASK = 0xffff,
+        TIMER_VECTOR_MASK = 0xfff,
         TIMER_VECTOR_SIZE,
     };
 
