@@ -313,7 +313,7 @@ private:
 	TEventVector _EventVectors[TIMER_VECTOR_SIZE];
 };
 
-#define TimerManager CTimerManager::getInstance()
+#define TimerManager NLMISC::CTimerManager::getInstance()
 
 //-------------------------------------------------------------------------------------------------
 // class CTimer
