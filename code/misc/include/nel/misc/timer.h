@@ -394,7 +394,7 @@ inline bool CTimer::setTime( NLMISC::TTime SecondSince1970,CTimerEvent* eventObj
 
     if ( ticks <= 0 )
     {
-        nlwarning("Set Timer Fail .  %"NL_I64"d", SecondSince1970 );
+        nlwarning("Set Timer Fail .  %" NL_I64 "d", SecondSince1970 );
         //delete eventObject;
         if (_Event!=NULL)
             _Event->clear();
