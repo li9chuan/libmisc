@@ -97,8 +97,8 @@
 	}
 */
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef NLMISC_TIMER_H
+#define NLMISC_TIMER_H
 
 //-------------------------------------------------------------------------------------------------
 // includes
@@ -118,6 +118,8 @@
 //-------------------------------------------------------------------------------------------------
 // forward class declarations
 //-------------------------------------------------------------------------------------------------
+
+namespace NLMISC {
 
 class CTimer;
 class CTimerEvent;
@@ -555,6 +557,8 @@ inline CTimerManager::TEventVector& CTimerManager::getEventVector(NLMISC::TGameC
 {
 	return _EventVectors[uint32(time&TIMER_VECTOR_MASK)];
 }
+
+} /* namespace NLMISC */
 
 //-------------------------------------------------------------------------------------------------
 #endif
