@@ -27,7 +27,7 @@
 using namespace NLMISC;
 using namespace std;
 
-CWindowDisplayer*   WindowDisplayer = NULL;
+//CWindowDisplayer*   WindowDisplayer = NULL;
 
 void  testcalltime()
 {
@@ -44,64 +44,71 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 int main(int argc, const char **argv)
 #endif
 {
-    NLMISC::CApplicationContext	serviceContext;
-    CHTimer::startBench(false, true);
-    CHTimer::endBench();
-
-    // create a logger; it's an information logger.
-    CLog CommandLog (CLog::LOG_INFO);
-
-#ifdef NL_OS_WINDOWS
-    WindowDisplayer = new CWinDisplayer ("DEFAULT_WD");
-#endif // NL_OS_WINDOWS
-
-    if ( WindowDisplayer!=NULL )
-    {
-        WindowDisplayer->create ( "*INIT* Test App.", false, -1, -1, -1, -1, -1, 0, "", false, &CommandLog);
-        WindowDisplayer->setTitleBar ("App version 1.0.0");
-        WindowDisplayer->createLabel ("@Measure|displayMeasures");
-        WindowDisplayer->createLabel ("@Quit|quit");
-
-        CommandLog.addDisplayer(WindowDisplayer, true);
-    }
-    else
-    {
-        IStdinMonitorSingleton::getInstance()->init();
-    }
-
-    ICommand::execute("displayMeasures", CommandLog);
-
-    while ( !isExit )
-    {
-        CHTimer::startBench(false, true, false);
-
-        if ( WindowDisplayer!=NULL )
-        {
-            WindowDisplayer->update ();
-        }
-        
-        // deal with any input waiting from stdin
-        {
-            H_AUTO(NLNETStdinMonitorUpdate);
-            IStdinMonitorSingleton::getInstance()->update();
-        }
-
-        {
-            H_AUTO(TTTTestTimer);
-            nlSleep(7);
-
-            testcalltime();
-            testcalltime();
-        }
-        
-        testcalltime();
-        nlSleep(100);
-        CHTimer::endBench();
-    }
-
-    // remove the stdin monitor thread
-    IStdinMonitorSingleton::getInstance()->release(); // does nothing if not initialized
-    CHTimer::clear();
+   
+//    NLMISC::CApplicationContext	serviceContext;
+//
+//    NLMISC::createDebug(NULL, false);
+//
+//    CHTimer::startBench(false, true);
+//    CHTimer::endBench();
+//
+//    // create a logger; it's an information logger.
+//    CLog CommandLog (CLog::LOG_INFO);
+//
+//
+//#ifdef NL_OS_WINDOWS
+//    WindowDisplayer = new CWinDisplayer ("DEFAULT_WD");
+//#endif // NL_OS_WINDOWS
+//
+//    if ( WindowDisplayer!=NULL )
+//    {
+//        WindowDisplayer->create ( "*INIT* Test App.", false, -1, -1, -1, -1, -1, 0, "", false, &CommandLog);
+//        WindowDisplayer->setTitleBar ("App version 1.0.0");
+//        WindowDisplayer->createLabel ("@Measure|displayMeasures");
+//        WindowDisplayer->createLabel ("@Quit|quit");
+//
+//        WindowDisplayer->display()
+//
+//        CommandLog.addDisplayer(WindowDisplayer, true);
+//    }
+//    else
+//    {
+//        IStdinMonitorSingleton::getInstance()->init();
+//    }
+//
+//    ICommand::execute("displayMeasures", CommandLog);
+//
+//    while ( !isExit )
+//    {
+//        CHTimer::startBench(false, true, false);
+//
+//        if ( WindowDisplayer!=NULL )
+//        {
+//            WindowDisplayer->update ();
+//        }
+//        
+//        // deal with any input waiting from stdin
+//        {
+//            H_AUTO(NLNETStdinMonitorUpdate);
+//            IStdinMonitorSingleton::getInstance()->update();
+//        }
+//
+//        {
+//            H_AUTO(TTTTestTimer);
+//            nlSleep(7);
+//
+//            testcalltime();
+//            testcalltime();
+//        }
+//        
+//        testcalltime();
+//        nlSleep(100);
+//        CHTimer::endBench();
+//    }
+//
+//    // remove the stdin monitor thread
+//    IStdinMonitorSingleton::getInstance()->release(); // does nothing if not initialized
+//    CHTimer::clear();
     return EXIT_SUCCESS;
 }
 
